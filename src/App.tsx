@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Container from './components/containers/MainCotainer';
+import Icon from './components/system/Icon';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App: React.FC = () => {
+    
+  const technologies: Array<string> = [
+    'React',
+    'Typescript',
+    'SCSS',
+    'Prettier',
+    'ESLint',
+    'Mui Icons',
+  ];
+
+  const children: JSX.Element = (
+    <div>
+      <Icon name={'lightMode'} color={'yellow'} size={'huge'} animate />
+      <h1>Empty Repo</h1>
+      <p>Michael Venetz 2024</p>
+      <p>Used:</p>
+      <ul>
+        {technologies.map((obj: string, i: number) => (
+          <li key={i} children={obj} />
+        ))}
+      </ul>
     </div>
   );
-}
+
+  return <Container children={children} />;
+};
 
 export default App;

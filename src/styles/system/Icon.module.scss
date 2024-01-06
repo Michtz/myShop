@@ -1,0 +1,45 @@
+.icon {
+  font-size: 200px !important;
+
+  &[data-size='small'] {
+    font-size: 15px !important;
+  }
+
+  &[data-size='normal'] {
+    font-size: 25px !important;
+  }
+
+  &[data-size='big'] {
+    font-size: 40px !important;
+  }
+
+  &[data-size='huge'] {
+    font-size: 200px !important;
+  }
+
+  &[data-color='blue'] {
+    color: blue !important;
+  }
+  &[data-color='red'] {
+    color: red !important;
+  }
+  &[data-color='green'] {
+    color: green !important;
+  }
+  &[data-color='yellow'] {
+    color: yellow !important;
+  }
+
+  &[data-animate='true'] {
+    animation: rotate 2s infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
