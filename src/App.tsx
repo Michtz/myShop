@@ -1,29 +1,23 @@
 import React from 'react';
-import Container from './components/containers/MainCotainer';
+import Container from './components/system/containers/Container';
 import Icon from './components/system/Icon';
 import Button from './components/system/Button';
 import './i18n';
 import { useTranslation } from 'react-i18next';
-import i18n from 'i18next';
+import { useTechnologies } from './hook/TechnologieHook';
+import { Technologies } from './types/common';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
   const { i18n } = useTranslation();
+  const technologies: Technologies = useTechnologies();
 
-  const technologies: Array<string> = [
-    'React',
-    'Typescript',
-    'SCSS',
-    'Prettier',
-    'ESLint',
-    'Mui Icons',
-  ];
-const switchLanguage = ():void => {
+  const switchLanguage = (): void => {
     i18n.changeLanguage(i18n.language === 'en' ? 'de' : 'en');
-}
+  };
 
-  const children: JSX.Element = (
-    <div>
+  return (
+    <Container>
       <Icon name={'lightMode'} color={'yellow'} size={'huge'} animate />
       <h1>{t('emptyRepo')}</h1>
       <p>Michael Venetz 2024</p>
@@ -33,12 +27,9 @@ const switchLanguage = ():void => {
           <li key={i} children={obj} />
         ))}
       </ul>
-      <h2>{t('welcome')}</h2>
       <Button onClick={switchLanguage} children={t('changeLanguage')} />
-    </div>
+    </Container>
   );
-
-  return <Container children={children} />;
 };
 
 export default App;
