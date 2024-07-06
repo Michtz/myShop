@@ -5,25 +5,26 @@ interface ButtonContainerProps {
   children: React.ReactNode;
 }
 
-const ButtonContainer: React.FC<ButtonContainerProps> = ({ children }) => {
+export const ButtonContainer: React.FC<ButtonContainerProps> = ({ children }) => {
   return <div className={style['button-container']}>{children}</div>;
 };
 
 interface ButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   children: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<ButtonProps> = ({
   onClick,
-  children
+  children,
+  type,
 }) => {
   return (
-    <ButtonContainer>
-      <button onClick={onClick} className={style['button']}>
+      <button onClick={onClick} className={style['button']} type={type}>
         {children}
       </button>
-    </ButtonContainer>
+
   );
 };
 

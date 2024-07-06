@@ -3,5 +3,9 @@
   "clickMe": "Click me",
   "emptyRepo": "Empty Repository",
   "used": "Used:",
-  "welcome": "Welcome to React"
+  "welcome": "Welcome to React",
+  "label": "Label",
+  "name": "Name",
+  "email": "Email",
+  "password": "Password"
 }
