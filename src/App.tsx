@@ -6,6 +6,8 @@ import './i18n';
 import { useTranslation } from 'react-i18next';
 import { useTechnologies } from './hook/TechnologieHook';
 import { Technologies } from './types/common';
+import UsedTechnologies from './components/sections/UsedTechnologies';
+import Header from './components/Header';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -18,15 +20,9 @@ const App: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <Icon name={'lightMode'} color={'yellow'} size={'huge'} animate />
-      <h1>{t('emptyRepo')}</h1>
-      <p>Michael Venetz 2024</p>
-      <p>{t('used')}</p>
-      <ul>
-        {technologies.map((obj: string, i: number) => (
-          <li key={i} children={obj} />
-        ))}
-      </ul>
+      <UsedTechnologies />
       <Button onClick={switchLanguage} children={t('changeLanguage')} />
     </Container>
   );

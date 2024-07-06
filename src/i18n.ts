@@ -19,7 +19,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     ns: ['common'],
     defaultNS: 'common',
     interpolation: {

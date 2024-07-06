@@ -26,14 +26,14 @@ type IconProps = {
     | 'checkCircle'
     | 'bookmarkAdded';
   color?: string;
-  size?: 'small' | 'medium' | 'large' | 'huge';
+  size?: 'small' | 'normal' | 'big' | 'huge';
   animate?: boolean;
 };
 
 const Icon: React.FC<IconProps> = ({
   name,
   color,
-  size = 'medium',
+  size = 'normal',
   animate = false,
 }) => {
   let icon = null;
