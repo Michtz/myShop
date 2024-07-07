@@ -22,7 +22,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   hiddenContent,
 }) => {
-  if (required) label = label + ' *';
+  label += required ? ': *' : ':';
 
   return (
     <div style={{ width: fullWidth ? '100%' : 'auto' }} className={style['input-container']}>

@@ -13,18 +13,14 @@ interface ButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
+  color?: 'primary' | 'secondary';
 }
 
-const Button: React.FC<ButtonProps> = ({
-  onClick,
-  children,
-  type,
-}) => {
+const Button: React.FC<ButtonProps> = ({ onClick, children, type, color = 'primary' }) => {
   return (
-      <button onClick={onClick} className={style['button']} type={type}>
-        {children}
-      </button>
-
+    <button onClick={onClick} className={style['button']} data-color={color} type={type}>
+      {children}
+    </button>
   );
 };
 

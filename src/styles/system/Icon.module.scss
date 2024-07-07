@@ -1,5 +1,10 @@
 .icon {
   font-size: 200px !important;
+  &[data-centred='true'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   &[data-size='small'] {
     font-size: 15px !important;

@@ -1,24 +1,32 @@
 .button-container {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
 
   .button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #0056b3;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 0 20px 5px rgba(94, 115, 138, 0.11);
+    &[data-color='primary'] {
+      color: white;
+      padding: 4px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0056b3;
+      cursor: pointer;
+      box-shadow: 0 0 20px 5px rgba(94, 115, 138, 0.11);
 
+      &:hover {
+        background-color: rgba(0, 86, 179, 0);
+        color: #0056b3;
+        border: 1px solid #0056b3;
+        box-shadow:
+          0 0 20px 5px rgba(94, 115, 138, 0.11),
+          inset 0 0 23px 1px rgba(56, 101, 150, 0.11);
+      }
+    }
 
-    &:hover {
-      background-color: rgba(0, 86, 179, 0);
-      color: #0056b3;
-      border: 1px solid #0056b3;
-      box-shadow: 0 0 20px 5px rgba(94, 115, 138, 0.11),
-      inset 0 0 23px 1px rgba(56,101,150,0.11);
-
+    &[data-color='secondary'] {
+      // ToDo: add secondary option
+      &:hover {
+      }
     }
   }
 }

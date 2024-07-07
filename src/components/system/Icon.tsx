@@ -28,132 +28,34 @@ type IconProps = {
   color?: string;
   size?: 'small' | 'normal' | 'big' | 'huge';
   animate?: boolean;
+  centred?: boolean;
 };
 
-const Icon: React.FC<IconProps> = ({
-  name,
-  color,
-  size = 'normal',
-  animate = false,
-}) => {
-  let icon = null;
+const iconComponents = {
+  lightMode: LightModeOutlinedIcon,
+  brightness4: Brightness4OutlinedIcon,
+  flare: FlareOutlinedIcon,
+  add: AddOutlinedIcon,
+  edit: EditOutlinedIcon,
+  delete: DeleteOutlineOutlinedIcon,
+  arrowBack: ArrowBackIosNewOutlinedIcon,
+  arrowForward: ArrowForwardIosOutlinedIcon,
+  check: CheckOutlinedIcon,
+  checkCircle: CheckCircleOutlineOutlinedIcon,
+  bookmarkAdded: BookmarkAddedOutlinedIcon,
+};
 
-  switch (name) {
-    case 'lightMode':
-      icon = (
-        <LightModeOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'brightness4':
-      icon = (
-        <Brightness4OutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'flare':
-      icon = (
-        <FlareOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'add':
-      icon = (
-        <AddOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'edit':
-      icon = (
-        <EditOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'delete':
-      icon = (
-        <DeleteOutlineOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'arrowBack':
-      icon = (
-        <ArrowBackIosNewOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'arrowForward':
-      icon = (
-        <ArrowForwardIosOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'check':
-      icon = (
-        <CheckOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'checkCircle':
-      icon = (
-        <CheckCircleOutlineOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    case 'bookmarkAdded':
-      icon = (
-        <BookmarkAddedOutlinedIcon
-          className={style['icon']}
-          data-size={size}
-          data-color={color}
-          data-animate={animate}
-        />
-      );
-      break;
-    default:
-      break;
-  }
-
-  return icon;
+const Icon: React.FC<IconProps> = ({ name, color, size = 'normal', animate = false, centred }) => {
+  const IconComponent = iconComponents[name];
+  return (
+    <IconComponent
+      className={style['icon']}
+      data-size={size}
+      data-color={color}
+      data-animate={animate}
+      data-centred={centred}
+    />
+  );
 };
 
 export default Icon;

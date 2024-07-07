@@ -1,8 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTechnologies } from '../../hook/TechnologieHook';
-import style from '../../styles/sections/formExample.module.scss';
-import { ContainerSectionForm } from '../system/ContainerSectionForm';
+import { ContainerSectionForm } from '../system/containers/Container';
 import { useForm } from 'react-hook-form';
 import { FormRow } from '../system/Form';
 import Input from '../system/Input';
@@ -48,14 +46,13 @@ const FormExample: React.FC = () => {
       const dataAsString: string = JSON.stringify(data);
       localStorage.setItem('userData', dataAsString);
       console.log(localStorage.getItem('userData'));
-    }catch (e) {
+    } catch (e) {
       console.error(e);
     }
-
   };
 
   return (
-    <ContainerSectionForm onSubmit={handleSubmit(onSubmit)}>
+    <ContainerSectionForm width={'small'} onSubmit={handleSubmit(onSubmit)}>
       <FormRow>
         <Input
           required
@@ -81,7 +78,7 @@ const FormExample: React.FC = () => {
           label={t('password')}
           fullWidth
           hiddenContent
-          placeholder={"********"}
+          placeholder={'********'}
           inputProps={register('password', { required: false })}
           /*  {...transformFieldError(errors.name)}*/
           disabled={false}

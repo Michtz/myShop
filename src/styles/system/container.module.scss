@@ -1,0 +1,61 @@
+.base-container {
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+  font-family: 'Titillium', sans-serif;
+  color: #262626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  background-color: whitesmoke;
+
+  .container-section {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 2rem;
+    border-radius: 20px;
+    gap: 0.5rem;
+
+    &[data-centred='true'] {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &[data-width='small'] {
+      width: 350px;
+    }
+
+    &[data-width='medium'] {
+      width: 450px;
+    }
+
+    &[data-width='large'] {
+      width: 550px;
+    }
+  }
+
+  .container-section-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 2rem;
+    border-radius: 20px;
+    gap: 0.5rem;
+
+    &[data-width='small'] {
+      width: 350px;
+    }
+
+    &[data-width='medium'] {
+      width: 450px;
+    }
+
+    &[data-width='large'] {
+      width: 550px;
+    }
+  }
+}
