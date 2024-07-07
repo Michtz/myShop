@@ -10,11 +10,11 @@ import { ExampleDataProvider } from './hook/ExampleDataHook';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ExampleDataProvider exampleData={exampleData}>
-      <TechnologiesProvider technologies={technologies}>
-        <App />
-      </TechnologiesProvider>
-    </ExampleDataProvider>
+      <ExampleDataProvider exampleData={exampleData}>
+        <TechnologiesProvider technologies={technologies}>
+          <App />
+        </TechnologiesProvider>
+      </ExampleDataProvider>
   </React.StrictMode>,
 );
 

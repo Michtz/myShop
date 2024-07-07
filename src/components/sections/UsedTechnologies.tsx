@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTechnologies } from '../../hook/TechnologieHook';
-import { ContainerSection } from '../system/containers/Container';
+import { ContainerSection } from '../system/Containers';
 import Icon from '../system/Icon';
 
 const UsedTechnologies: React.FC = () => {

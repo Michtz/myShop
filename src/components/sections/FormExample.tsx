@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ContainerSectionForm } from '../system/containers/Container';
+import { ContainerSectionForm } from '../system/Containers';
 import { useForm } from 'react-hook-form';
-import { FormRow } from '../system/Form';
+import { FormRow, FormTitle } from '../system/Form';
 import Input from '../system/Input';
 import { ExampleData } from '../../types/common';
 import Button, { ButtonContainer } from '../system/Button';
@@ -46,6 +46,7 @@ const FormExample: React.FC = () => {
       const dataAsString: string = JSON.stringify(data);
       localStorage.setItem('userData', dataAsString);
       console.log(localStorage.getItem('userData'));
+
     } catch (e) {
       console.error(e);
     }
@@ -53,6 +54,7 @@ const FormExample: React.FC = () => {
 
   return (
     <ContainerSectionForm width={'small'} onSubmit={handleSubmit(onSubmit)}>
+      <FormTitle title={t('register')} description={t('register-description')} />
       <FormRow>
         <Input
           required
@@ -84,8 +86,9 @@ const FormExample: React.FC = () => {
           disabled={false}
         />
       </FormRow>
-      <ButtonContainer>
-        <Button type={'submit'} children={'test'} />
+      <ButtonContainer position={'center'}>
+        <Button type={'submit'} color={'secondary'} children={t('login')} />
+        <Button type={'submit'} children={t('register')} />
       </ButtonContainer>
     </ContainerSectionForm>
   );

@@ -23,4 +23,22 @@ export const FormRow: React.FC<PropsWithChildren> = ({ children }): JSX.Element 
   return <div children={children} />;
 };
 
+/**
+ * FormTitle system component which can be used to specify a title in a form
+ */
+
+interface FormTitleProps extends PropsWithChildren {
+  title: string;
+  description?: string;
+}
+
+export const FormTitle: React.FC<FormTitleProps> = ({ title, description }): JSX.Element => {
+  return (
+    <div>
+      <h2 children={title} />
+      <p children={description} style={{color:'gray'}} />
+    </div>
+  );
+};
+
 export default Form;

@@ -1,11 +1,14 @@
 {
   "changeLanguage": "Change language",
   "clickMe": "Click me",
-  "emptyRepo": "Empty Repository",
-  "used": "Used:",
-  "welcome": "Welcome to React",
-  "label": "Label",
-  "name": "Name",
   "email": "Email",
-  "password": "Password"
+  "emptyRepo": "Empty Repository",
+  "label": "Label",
+  "login": "Login",
+  "name": "Name",
+  "password": "Password",
+  "register": "Register",
+  "register-description": "Register to use all features",
+  "used": "Used:",
+  "welcome": "Welcome to React"
 }

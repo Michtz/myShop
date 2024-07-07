@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, PropsWithChildren } from 'react';
-import style from '../../../styles/system/container.module.scss';
-import Form from '../Form';
-import { IContainerProps, ContainerWidth } from '../../../types/common';
+import style from '../../styles/system/container.module.scss';
+import Form from './Form';
+import { IContainerProps, ContainerWidth } from '../../types/common';
 
 /**
  * Container system component can be used as a wrapper for a section
