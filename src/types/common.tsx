@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent } from 'react';
+import React from 'react';
 
 export type Technologies = Array<string>;
 

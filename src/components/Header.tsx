@@ -1,11 +1,10 @@
 import React from 'react';
-// Import the SCSS module for styling. Adjust the path as necessary.
 import style from '../styles/header.module.scss';
 import Icon from './system/Icon';
 import Button, { ButtonContainer } from './system/Button';
 import { useTranslation } from 'react-i18next';
 import { useFeedback } from '../hook/FeedbackHook';
-import Container, { ContainerSection } from './system/Containers';
+import { ContainerSection } from './system/Containers';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
