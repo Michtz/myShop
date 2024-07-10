@@ -7,6 +7,7 @@ import Input from '../system/Input';
 import { ExampleData } from '../../types/common';
 import Button, { ButtonContainer } from '../system/Button';
 import { useExampleData } from '../../hook/ExampleDataHook';
+import { useFeedback } from '../../hook/FeedbackHook';
 
 interface FormFields {
   name: string;
@@ -35,8 +36,9 @@ const getDefaultValues = (exampleData: ExampleData = {} as any): FormFields => {
 const FormExample: React.FC = () => {
   const { t } = useTranslation();
   const exampleData: ExampleData = useExampleData();
+  const { showFeedback } = useFeedback();
 
-  const { register, reset, formState, handleSubmit, setValue } = useForm<FormFields>({
+  const { register, handleSubmit } = useForm<FormFields>({
     mode: 'onChange',
     defaultValues: getDefaultValues(exampleData),
   });
@@ -45,50 +47,52 @@ const FormExample: React.FC = () => {
     try {
       const dataAsString: string = JSON.stringify(data);
       localStorage.setItem('userData', dataAsString);
-      console.log(localStorage.getItem('userData'));
-
+      showFeedback(t('feedback.data-saved-success'), 'success');
     } catch (e) {
-      console.error(e);
+      showFeedback(t('feedback.data-saved-error'), 'error');
     }
   };
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSubmit(onSubmit)();
+  };
+
   return (
-    <ContainerSectionForm width={'small'} onSubmit={handleSubmit(onSubmit)}>
+    <ContainerSectionForm width={'small'} onSubmit={handleFormSubmit}>
       <FormTitle title={t('register')} description={t('register-description')} />
       <FormRow>
         <Input
-          required
           label={t('name')}
           fullWidth
           placeholder={t('name')}
           inputProps={register('name', { required: true })}
-          /*  {...transformFieldError(errors.name)}*/
           disabled={false}
         />
       </FormRow>
       <FormRow>
         <Input
+          required
           label={t('email')}
           fullWidth
           inputProps={register('email', { required: false })}
-          /*  {...transformFieldError(errors.name)}*/
           disabled={false}
         />
       </FormRow>
       <FormRow>
         <Input
+          required
           label={t('password')}
           fullWidth
           hiddenContent
           placeholder={'********'}
           inputProps={register('password', { required: false })}
-          /*  {...transformFieldError(errors.name)}*/
           disabled={false}
         />
       </FormRow>
       <ButtonContainer position={'center'}>
-        <Button type={'submit'} color={'secondary'} children={t('login')} />
-        <Button type={'submit'} children={t('register')} />
+        <Button type={'submit'} color={'secondary'}>{t('login')}</Button>
+        <Button type={'submit'}>{t('register')}</Button>
       </ButtonContainer>
     </ContainerSectionForm>
   );

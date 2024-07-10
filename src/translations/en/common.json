@@ -10,5 +10,12 @@
   "register": "Register",
   "register-description": "Register to use all features",
   "used": "Used:",
-  "welcome": "Welcome to React"
+  "welcome": "Welcome to React",
+  "feedback": {
+    "user-back": "Nice to see you again",
+    "user-new": "Welcome",
+    "data-saved-error": "Error saving data",
+    "data-saved-success": "Data saved successfully",
+    "language-changed": "Language changed"
+  }
 }

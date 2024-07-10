@@ -1,8 +1,43 @@
-.feedback-container{
-  display: flex;
-.feedback-content {
-  display: flex;
+.feedback-container {
+  position: absolute;
+  bottom: 5vh;
+  right: 0;
 
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 2rem;
+
+  background-color: #3ead3e;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+
+  animation: slideIn 0.5s forwards;
+
+  .feedback-content {
+    color: white;
+    font-size: 1rem;
+  }
 }
 
+.feedback-container.hide {
+  animation: slideOut 0.5s forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

@@ -1,20 +1,21 @@
 import React from 'react';
 import style from '../../styles/system/feedback.module.scss';
 import Icon from './Icon';
+import { useFeedback } from '../../hook/FeedbackHook';
 
+const Feedback: React.FC = React.memo(() => {
+  const { isVisible, variant, label } = useFeedback();
 
-interface FeedbackProps {
-  variant?: 'error' | 'info' | 'success';
-  label: string;
-}
+  if (!isVisible) return null;
 
-const Feedback: React.FC<FeedbackProps> = React.memo(({ variant = 'success', label}): JSX.Element => {
   return (
-      <section className={style['feedback-container']} data-variant={variant}>
-        <Icon name={'check'} />
-        <div className={style['feedback-content']} children={label} />
-      </section>
+    <section className={`${style['feedback-container']}`} data-variant={variant}>
+      <Icon name={'check'} color={"white"} />
+      <div className={style['feedback-content']}>{label}</div>
+    </section>
   );
 });
+
+Feedback.displayName = 'Feedback';
 
 export default Feedback;

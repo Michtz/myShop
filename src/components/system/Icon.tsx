@@ -25,7 +25,7 @@ type IconProps = {
     | 'check'
     | 'checkCircle'
     | 'bookmarkAdded';
-  color?: string;
+  color?: 'green' |'white' |'red'|'yellow';
   size?: 'small' | 'normal' | 'big' | 'huge';
   animate?: boolean;
   centred?: boolean;

@@ -12,7 +12,7 @@ export interface ExampleData {
 
 export interface IContainerProps {
   children: React.ReactNode;
-  onSubmit?: (e?: BaseSyntheticEvent<object, any, any>) => Promise<void>;
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export type ContainerWidth = 'small' | 'medium' | 'large';
