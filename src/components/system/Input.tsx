@@ -1,33 +1,43 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import style from '../../styles/system/input.module.scss';
+
+type inputType = 'text' | 'password' | 'email' | 'number' | 'radio' | 'range' | 'color';
 
 interface InputProps {
   label: string;
-  fullWidth: boolean;
+  fullWidth?: boolean;
   inputProps: React.InputHTMLAttributes<HTMLInputElement>;
   error?: string;
   disabled?: boolean;
   required?: boolean;
   placeholder?: any;
-  hiddenContent?: boolean;
+  type?: inputType;
+  alignContent?: 'start' | 'center' | 'end';
 }
 
 const Input: React.FC<InputProps> = ({
   label,
-  fullWidth,
+  fullWidth = false,
   inputProps,
   error,
   disabled,
   required,
   placeholder,
-  hiddenContent,
+  type = 'text',
+  alignContent = 'center',
 }) => {
   label += required ? ': *' : ':';
 
   return (
     <div style={{ width: fullWidth ? '100%' : 'auto' }} className={style['input-container']}>
       <label children={label} />
-      <input {...inputProps} disabled={disabled} placeholder={placeholder} type={hiddenContent ? 'password' : ''} />
+      <input
+        {...inputProps}
+        disabled={disabled}
+        data-align={alignContent}
+        placeholder={placeholder}
+        type={type}
+      />
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );

@@ -19,8 +19,9 @@ const Form: React.FC<FormProps> = ({ className = '', onSubmit, onKeyDown, ...pro
  * FormRow system component which can be used to specify a row in a form. Rows defined
  * in a FormRow will vertically collapse as soon as the screen width is too small for responsiveness' sake
  */
+
 export const FormRow: React.FC<PropsWithChildren> = ({ children }): JSX.Element => {
-  return <div className={style['form-row']}>{children}</div>;
+  return <div>{children}</div>;
 };
 
 /**

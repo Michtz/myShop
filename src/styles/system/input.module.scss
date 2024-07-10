@@ -14,5 +14,14 @@
     padding: 7px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+
+    display: flex;
+
+    &[data-align='center'] {
+    }
+
+    &[data-align='start'] {
+      width: min-content;
+    }
   }
 }

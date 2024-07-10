@@ -46,7 +46,7 @@ const FormExample: React.FC = () => {
   const onSubmit = async (data: FormFields) => {
     try {
       const dataAsString: string = JSON.stringify(data);
-      localStorage.setItem('userData', dataAsString);
+      sessionStorage.setItem('userData', dataAsString);
       showFeedback(t('feedback.data-saved-success'), 'success');
     } catch (e) {
       showFeedback(t('feedback.data-saved-error'), 'error');
@@ -82,16 +82,40 @@ const FormExample: React.FC = () => {
       <FormRow>
         <Input
           required
+          type={'password'}
           label={t('password')}
           fullWidth
-          hiddenContent
           placeholder={'********'}
           inputProps={register('password', { required: false })}
           disabled={false}
         />
       </FormRow>
+      <FormRow>
+        <Input
+          type={'range'}
+          required
+          label={t('password')}
+          fullWidth
+          placeholder={'********'}
+          inputProps={register('name', { required: false })}
+          disabled={false}
+        />
+      </FormRow>
+      <FormRow>
+        <Input
+          type={'radio'}
+          alignContent={'start'}
+          required
+          label={t('password')}
+          placeholder={'********'}
+          inputProps={register('name', { required: false })}
+          disabled={false}
+        />
+      </FormRow>
       <ButtonContainer position={'center'}>
-        <Button type={'submit'} color={'secondary'}>{t('login')}</Button>
+        <Button type={'submit'} color={'secondary'}>
+          {t('login')}
+        </Button>
         <Button type={'submit'}>{t('register')}</Button>
       </ButtonContainer>
     </ContainerSectionForm>
