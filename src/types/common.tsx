@@ -15,4 +15,4 @@ export interface IContainerProps {
   onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-export type ContainerWidth = 'small' | 'medium' | 'large';
+export type ContainerWidth = 'small' | 'medium' | 'large' | 'full';

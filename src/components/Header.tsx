@@ -5,6 +5,7 @@ import Icon from './system/Icon';
 import Button, { ButtonContainer } from './system/Button';
 import { useTranslation } from 'react-i18next';
 import { useFeedback } from '../hook/FeedbackHook';
+import Container, { ContainerSection } from './system/Containers';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
@@ -22,20 +23,18 @@ const Header: React.FC = () => {
     }
   };
 
-
-
   return (
-    <header className={style['header-container']}>
-      <nav>
-        <section className={style['logo-container']}>
-          <Icon name={'flare'} color={'green'} size={'normal'} />
-        </section>
-        <ul className={style.navList}></ul>
-      </nav>
-      <ButtonContainer>
+    <ContainerSection noBackground width={'full'}>
+      <ButtonContainer position={'center'}>
+        <nav>
+          <section className={style['logo-container']}>
+            <Icon name={'flare'} color={'green'} size={'normal'} />
+          </section>
+          <ul className={style.navList}>{/* Add your navigation items here */}</ul>
+        </nav>
         <Button onClick={switchLanguage} children={t('changeLanguage')} />
       </ButtonContainer>
-    </header>
+    </ContainerSection>
   );
 };
 

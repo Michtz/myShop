@@ -1,10 +1,10 @@
-import React, { HTMLAttributes, PropsWithChildren } from 'react';
+import React from 'react';
 import style from '../../styles/system/container.module.scss';
 import Form from './Form';
 import { IContainerProps, ContainerWidth } from '../../types/common';
 
 /**
- * Container system component can be used as a wrapper for a section
+ * Container system component can be used as a wrapper for sections
  */
 
 const Container: React.FC<IContainerProps> = ({ children }) => {
@@ -18,21 +18,38 @@ const Container: React.FC<IContainerProps> = ({ children }) => {
 interface IContainerSectionProps extends IContainerProps {
   centred?: boolean;
   width?: ContainerWidth;
+  noBackground?: boolean;
 }
 
-export const ContainerSection: React.FC<IContainerSectionProps> = ({ children, centred = false, width = 'small' }) => {
-  return <div className={style['container-section']} data-width={width} data-centred={centred} children={children} />;
+export const ContainerSection: React.FC<IContainerSectionProps> = ({
+  children,
+  centred = false,
+  width = 'small',
+  noBackground = false,
+}) => {
+  return (
+    <div
+      className={style['container-section']}
+      data-width={width}
+      data-noBackground={noBackground}
+      data-centred={centred}
+      children={children}
+    />
+  );
 };
 
 /**
- * ContainerSectionForm system component can be used as a wrapper for a form in a container section
+ * ContainerSectionForm system component can be used as a wrapper for a form section in a container
  */
 
 interface ContainerSectionProps extends IContainerProps {
   width?: ContainerWidth;
 }
 
-export const ContainerSectionForm: React.FC<ContainerSectionProps> = ({ width, ...rest }): JSX.Element => {
+export const ContainerSectionForm: React.FC<ContainerSectionProps> = ({
+  width,
+  ...rest
+}): JSX.Element => {
   return <Form data-width={width} className={style['container-section-form']} {...rest} />;
 };
 
