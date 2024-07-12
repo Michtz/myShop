@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { FeedbackVariant } from '../types/common';
 
 interface FeedbackContextType {
   isVisible: boolean;
-  variant: 'error' | 'info' | 'success';
+  variant: FeedbackVariant;
   label: string;
-  showFeedback: (label: string, variant: 'error' | 'info' | 'success') => void;
+  showFeedback: (label: string, variant: FeedbackVariant) => void;
   hideFeedback: () => void;
 }
 
@@ -16,15 +17,13 @@ interface FeedbackProviderProps {
 
 export const FeedbackProvider: React.FC<FeedbackProviderProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [variant, setVariant] = useState<'error' | 'info' | 'success'>('success');
+  const [variant, setVariant] = useState<FeedbackVariant>('success');
   const [label, setLabel] = useState('');
 
-  const showFeedback = useCallback((newLabel: string, newVariant: 'error' | 'info' | 'success') => {
+  const showFeedback = useCallback((newLabel: string, newVariant: FeedbackVariant) => {
     setLabel(newLabel);
     setVariant(newVariant);
     setIsVisible(true);
-
-    // Auto-hide feedback after 3 seconds
     setTimeout(() => {
       setIsVisible(false);
     }, 3000);
@@ -42,7 +41,7 @@ export const FeedbackProvider: React.FC<FeedbackProviderProps> = ({ children }) 
     hideFeedback,
   };
 
-  return <FeedbackContext.Provider value={value}>{children}</FeedbackContext.Provider>;
+  return <FeedbackContext.Provider value={value} children={children} />;
 };
 
 export const useFeedback = (): FeedbackContextType => {

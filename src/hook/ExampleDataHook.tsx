@@ -1,20 +1,19 @@
 import React, { createContext, useContext, Context, PropsWithChildren } from 'react';
-import data from '../data/exampleData.json';
 import { ExampleData } from '../types/common';
+import exampleDataJson from '../data/exampleData.json';
 
-const defaultValue: ExampleData = data;
+const defaultValue: ExampleData = exampleDataJson;
 
-const TechnologiesContext: Context<ExampleData> = createContext<ExampleData>(defaultValue);
+const ExampleDataContext: Context<ExampleData> = createContext<ExampleData>(defaultValue);
 
-interface ExampleDataProviderProps extends PropsWithChildren {
-  exampleData: ExampleData;
-}
-
-export const ExampleDataProvider: React.FC<ExampleDataProviderProps> = ({ children, exampleData }) => {
-  return <TechnologiesContext.Provider value={exampleData} children={children} />;
-};
+export const ExampleDataProvider: React.FC<PropsWithChildren> = ({ children }) => (
+  <ExampleDataContext.Provider value={defaultValue}>{children}</ExampleDataContext.Provider>
+);
 
 export const useExampleData = (): ExampleData => {
-  const context: ExampleData = useContext(TechnologiesContext);
-  return context || [''];
+  const context: ExampleData = useContext(ExampleDataContext);
+  if (context === undefined) {
+    throw new Error('useExampleData must be used within an ExampleDataProvider');
+  }
+  return context;
 };

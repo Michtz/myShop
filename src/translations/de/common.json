@@ -1,21 +1,23 @@
 {
   "changeLanguage": "Sprache ändern",
+  "checkbox": "Checkbox",
   "clickMe": "Klick mich",
   "email": "E-Mail",
   "emptyRepo": "Leeres Repository",
-  "label": "Label",
-  "login": "Anmelden",
-  "name": "Name",
-  "password": "Passwort",
-  "register": "Registrieren",
-  "register-description": "Registrieren Sie sich, um alle Funktionen zu nutzen",
-  "used": "Nutzt:",
-  "welcome": "Willkommen bei React",
   "feedback": {
     "user-back": "Schön, dass du wieder da bist!",
     "user-new": "Willkommen bei uns!",
     "data-saved-error": "Fehler beim Speichern der Daten",
     "data-saved-success": "Daten erfolgreich gespeichert",
     "language-changed": "Sprache geändert"
-  }
+  },
+  "input": "Eingabe",
+  "label": "Label",
+  "login": "Anmelden",
+  "name": "Name",
+  "password": "Passwort",
+  "register": "Registrieren",
+  "register-description": "Registrieren Sie sich, um alle Funktionen zu nutzen",
+  "slider": "Schieberegler",
+  "used": "Nutzt:"
 }

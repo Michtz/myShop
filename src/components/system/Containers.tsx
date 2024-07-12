@@ -31,7 +31,7 @@ export const ContainerSection: React.FC<IContainerSectionProps> = ({
     <div
       className={style['container-section']}
       data-width={width}
-      data-noBackground={noBackground}
+      data-no-background={noBackground}
       data-centred={centred}
       children={children}
     />

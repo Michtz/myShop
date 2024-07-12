@@ -1,21 +1,23 @@
 {
   "changeLanguage": "Change language",
+  "checkbox": "Checkbox",
   "clickMe": "Click me",
   "email": "Email",
   "emptyRepo": "Empty Repository",
+  "feedback": {
+    "data-saved-error": "Error saving data",
+    "data-saved-success": "Data saved successfully",
+    "language-changed": "Language changed",
+    "user-back": "Nice to see you again",
+    "user-new": "Welcome"
+  },
+  "input": "Input",
   "label": "Label",
   "login": "Login",
   "name": "Name",
   "password": "Password",
   "register": "Register",
   "register-description": "Register to use all features",
-  "used": "Used:",
-  "welcome": "Welcome to React",
-  "feedback": {
-    "user-back": "Nice to see you again",
-    "user-new": "Welcome",
-    "data-saved-error": "Error saving data",
-    "data-saved-success": "Data saved successfully",
-    "language-changed": "Language changed"
-  }
+  "slider": "Slider",
+  "used": "Used:"
 }

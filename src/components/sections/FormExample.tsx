@@ -63,7 +63,7 @@ const FormExample: React.FC = () => {
       <FormTitle title={t('register')} description={t('register-description')} />
       <FormRow>
         <Input
-          label={t('name')}
+          label={t('input')}
           fullWidth
           placeholder={t('name')}
           inputProps={register('name', { required: true })}
@@ -94,7 +94,7 @@ const FormExample: React.FC = () => {
         <Input
           type={'range'}
           required
-          label={t('password')}
+          label={t('slider')}
           fullWidth
           placeholder={'********'}
           inputProps={register('name', { required: false })}
@@ -104,10 +104,9 @@ const FormExample: React.FC = () => {
       <FormRow>
         <Input
           type={'radio'}
+          label={t('checkbox')}
           alignContent={'start'}
           required
-          label={t('password')}
-          placeholder={'********'}
           inputProps={register('name', { required: false })}
           disabled={false}
         />

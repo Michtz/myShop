@@ -1,31 +1,19 @@
-import React, {
-  createContext,
-  useContext,
-  Context,
-  PropsWithChildren,
-} from 'react';
-import data from '../data/technologies.json';
-import { Technologies } from '../types/common';
+import React, { createContext, useContext, Context, PropsWithChildren } from 'react';
+import { PackageJson } from '../types/common';
+import technologiesData from '../../package.json';
 
-const defaultValue: Technologies = data;
+const defaultValue: PackageJson = technologiesData;
 
-const TechnologiesContext: Context<Technologies> =
-  createContext<Technologies>(defaultValue);
+const TechnologiesContext: Context<PackageJson> = createContext<PackageJson>(defaultValue);
 
-interface TechnologiesProviderProps extends PropsWithChildren {
-  technologies: Technologies;
-}
+export const TechnologiesProvider: React.FC<PropsWithChildren> = ({ children }) => (
+  <TechnologiesContext.Provider value={defaultValue} children={children} />
+);
 
-export const TechnologiesProvider: React.FC<TechnologiesProviderProps> = ({
-  children,
-  technologies,
-}) => {
-  return (
-    <TechnologiesContext.Provider value={technologies} children={children} />
-  );
-};
-
-export const useTechnologies = (): Technologies => {
-  const context: Technologies = useContext(TechnologiesContext);
-  return context ||  [""] ;
+export const useTechnologies = (): PackageJson => {
+  const context: PackageJson = useContext(TechnologiesContext);
+  if (context === undefined) {
+    throw new Error('useTechnologies must be used within a TechnologiesProvider');
+  }
+  return context;
 };

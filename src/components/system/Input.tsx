@@ -34,6 +34,7 @@ const Input: React.FC<InputProps> = ({
       <input
         {...inputProps}
         disabled={disabled}
+        data-error={!!error}
         data-align={alignContent}
         placeholder={placeholder}
         type={type}
