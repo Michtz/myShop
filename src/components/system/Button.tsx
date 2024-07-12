@@ -1,5 +1,6 @@
 import React from 'react';
 import style from '../../styles/system/button.module.scss';
+import { Link } from 'react-router-dom';
 
 interface ButtonContainerProps {
   children: React.ReactNode;
@@ -15,10 +16,19 @@ interface ButtonProps {
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
   color?: 'primary' | 'secondary';
+  href?: string;
 
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, type, color = 'primary' }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, children, type, color = 'primary', href }) => {
+ if (href) {
+   return (
+     <Link to="/form" className={location.pathname === '/form' ? style.active : ''}>
+       {children}
+     </Link>
+   );
+ }
+ 
   return (
     <button onClick={onClick}  className={style['button']} data-color={color} type={type}>
       {children}

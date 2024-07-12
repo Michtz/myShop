@@ -1,19 +1,22 @@
 import React from 'react';
-import Container from './components/system/Containers';
-
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout';
 import UsedTechnologies from './components/sections/UsedTechnologies';
-import Header from './components/Header';
 import FormExample from './components/sections/FormExample';
-import Feedback from './components/system/Feedback';
+import Error from './components/Error';
+
 
 const App: React.FC = () => {
   return (
-    <Container>
-      <Header />
-      <UsedTechnologies />
-      <FormExample />
-      <Feedback />
-    </Container>
+      <BrowserRouter>
+        <Layout>
+            <Routes>
+              <Route path="/" element={<UsedTechnologies />} />
+              <Route path="/form" element={<FormExample />} />
+              <Route path="/*" element={<Error />} />
+            </Routes>
+        </Layout>
+      </BrowserRouter>
   );
 };
 
