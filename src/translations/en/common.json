@@ -19,6 +19,9 @@
   "register": "Register",
   "register-description": "Register to use all features",
   "slider": "Slider",
-  "used": "Used:",
-  "back-home": "Back to home"
+  "used": "This Repo used:",
+  "back-home": "Back to home",
+    "home": "Home",
+    "formExample": "Form example",
+    "git-repo": "Git Repo"
 }

@@ -28,11 +28,11 @@ const Link: React.FC<LinkProps> = ({
     if (onClick) {
       onClick(event);
     } else if (href && !external) {
-   /*   await router.push(href);*/
+      /*test*/
     }
   };
 
-  const linkClass:string = `${style['link']} ${className || ''} ${disabled ? style['disabled'] : ''}`;
+  const linkClass = `${style['link']} ${className || ''} ${disabled ? style['disabled'] : ''}`;
 
   return (
     <a
@@ -41,8 +41,8 @@ const Link: React.FC<LinkProps> = ({
       onClick={handleClick}
       data-fullwidth={fullWidth}
       data-disabled={disabled}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noopener noreferrer' : undefined}
+     /* target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}*/
     >
       {children}
     </a>

@@ -22,11 +22,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ onClick, children, type, color = 'primary', href }) => {
  if (href) {
-   return (
-     <Link to="/form" className={location.pathname === '/form' ? style.active : ''}>
-       {children}
-     </Link>
-   );
+   return <Link to={href}>{children}</Link>;
  }
  
   return (

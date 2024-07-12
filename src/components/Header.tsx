@@ -20,36 +20,47 @@ const Header: React.FC = () => {
     showFeedback(t('feedback.language-changed'), 'success');
   };
 
+  const navOptions: Array<JSX.Element> = [];
+
+  const Home: JSX.Element = (
+    <ButtonContainer>
+      <Button href={'/'} children={t('home')} />
+    </ButtonContainer>
+  );
+
+  const UsedTechnologies: JSX.Element = (
+    <ButtonContainer>
+      <Button href={'/usedTechnologies'} children={t('usedTechnologies')} />
+    </ButtonContainer>
+  );
+
+  const FormExample: JSX.Element = (
+    <ButtonContainer>
+      <Button href={'/form'} children={t('formExample')} />
+    </ButtonContainer>
+  );
+
+  navOptions.push(FormExample);
+  navOptions.push(UsedTechnologies);
+  navOptions.push(Home);
+
   return (
-    <ContainerSection noBackground marginTop={false} radius={false} width={"full"}>
-    <header className={style['header-container']}>
-      <nav>
-        <section className={style['logo-container']}>
-          <Icon name={'flare'} color={'green'} size={'normal'} />
-        </section>
-        <ul className={style.navList}>
-          <li>
-            <Link
-              to="/"
-              className={location.pathname === '/' ? style.active : ''}
-            >
-              {t('usedTechnologies')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/form"
-              className={location.pathname === '/form' ? style.active : ''}
-            >
-              {t('formExample')}
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <ButtonContainer>
-        <Button onClick={switchLanguage}>{t('changeLanguage')}</Button>
-      </ButtonContainer>
-    </header>
+    <ContainerSection noBackground marginTop={false} radius={false} width={'full'}>
+      <header className={style['header-container']}>
+        <nav>
+          <section className={style['logo-container']}>
+            <Icon name={'flare'} color={'green'} size={'normal'} />
+          </section>
+          <ul className={style['nav-container']}>
+            {navOptions.map((option: JSX.Element, index: number) => (
+              <li key={index}>{option}</li>
+            ))}
+          </ul>
+        </nav>
+        <ButtonContainer>
+          <Button onClick={switchLanguage}>{t('changeLanguage')}</Button>
+        </ButtonContainer>
+      </header>
     </ContainerSection>
   );
 };

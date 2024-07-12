@@ -5,31 +5,27 @@ import { ContainerSection } from '../system/Containers';
 import Icon from '../system/Icon';
 import { PackageJson } from '../../types/common';
 
-const objectToArray = (obj: Record<string, string>): Array<string> => {
-  return Object.entries(obj).map(([key, value]) => `${key}: ${value}`);
-};
-
 const UsedTechnologies: React.FC = () => {
   const { t } = useTranslation();
   const technologies: PackageJson = useTechnologies();
-  const dependencies: Array<string> = objectToArray(technologies.dependencies);
+  const dependencies: JSX.Element = (
+    <ul>
+      {Object.entries(technologies.dependencies).map(([key, value]) => (
+        <li key={`${key}:${value}`}>{`${key}: ${value}`}</li>
+      ))}
+    </ul>
+  );
 
   return (
-    <ContainerSection width="small" centred>
-      <header>
-        <h1>{t('emptyRepo')}</h1>
-        <p>Michael Venetz 2024</p>
-      </header>
-      <Icon name="lightMode" centred color="yellow" size="huge" animate />
-      <section>
-        <h2>{t('used')}</h2>
-        <ul>
-          {dependencies.map((dep) => (
-            <li key={dep}>{dep}</li>
-          ))}
-        </ul>
-      </section>
-    </ContainerSection>
+    <>
+      <ContainerSection width="small" centred>
+        <h1>{t('used')}</h1>
+        <Icon name="lightMode" centred color="red" size="huge" animate />
+      </ContainerSection>
+      <ContainerSection width="small" centred>
+        {dependencies}
+      </ContainerSection>
+    </>
   );
 };
 

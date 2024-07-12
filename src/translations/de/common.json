@@ -19,6 +19,9 @@
   "register": "Registrieren",
   "register-description": "Registrieren Sie sich, um alle Funktionen zu nutzen",
   "slider": "Schieberegler",
-  "used": "Nutzt:",
-  "back-home": "Zurück zur Startseite"
+  "used": "Das Repo Nutzt:",
+  "back-home": "Zurück zur Startseite",
+    "home": "Startseite",
+  "formExample": "Formularbeispiel",
+  "git-repo": "Git-Repo"
 }

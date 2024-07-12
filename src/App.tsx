@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import UsedTechnologies from './components/sections/UsedTechnologies';
 import FormExample from './components/sections/FormExample';
 import Error from './components/Error';
+import Home from './components/sections/Home';
 
 
 const App: React.FC = () => {
@@ -11,7 +12,8 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Layout>
             <Routes>
-              <Route path="/" element={<UsedTechnologies />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/usedTechnologies" element={<UsedTechnologies />} />
               <Route path="/form" element={<FormExample />} />
               <Route path="/*" element={<Error />} />
             </Routes>
