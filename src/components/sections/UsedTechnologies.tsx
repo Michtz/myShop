@@ -24,8 +24,8 @@ const UsedTechnologies: React.FC = () => {
       <section>
         <h2>{t('used')}</h2>
         <ul>
-          {dependencies.map((dep, index) => (
-            <li key={index}>{dep}</li>
+          {dependencies.map((dep) => (
+            <li key={dep}>{dep}</li>
           ))}
         </ul>
       </section>
