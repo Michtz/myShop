@@ -24,5 +24,6 @@
   "register": "Registrieren",
   "register-description": "Registrieren Sie sich, um alle Funktionen zu nutzen",
   "slider": "Schieberegler",
-  "used": "Das Repo Nutzt:"
+  "used": "Das Repo Nutzt:",
+  "dnd-example": "Drag and Drop List Beispiel"
 }

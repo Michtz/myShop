@@ -8,15 +8,8 @@ interface LinkProps {
 }
 
 const Link: React.FC<LinkProps> = ({ children, href, onClick, fullWidth = false }) => {
-  const handleClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    if (onClick) {
-      onClick(event);
-    }
-  };
-
   return (
-    <a href={href} onClick={handleClick} data-fullwidth={fullWidth}>
+    <a href={href} onClick={onClick} data-fullwidth={fullWidth}>
       {children}
     </a>
   );

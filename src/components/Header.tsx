@@ -43,10 +43,17 @@ const Header: React.FC = () => {
     </ButtonContainer>
   );
 
-  navOptions.push(FormExample);
-  navOptions.push(UsedTechnologies);
+  const DndExample: JSX.Element = (
+    <ButtonContainer>
+      <Button href={'/dndList'} children={t('dnd-example')} />
+    </ButtonContainer>
+  );
+
   navOptions.push(Home);
+  navOptions.push(UsedTechnologies);
+  navOptions.push(FormExample);
   navOptions.push(Accordion);
+  navOptions.push(DndExample);
 
   return (
     <ContainerSection noBackground marginTop={false} radius={false} width={'full'}>

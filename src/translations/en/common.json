@@ -24,5 +24,6 @@
   "register": "Register",
   "register-description": "Register to use all features",
   "slider": "Slider",
-  "used": "This Repo used:"
+  "used": "This Repo used:",
+    "dnd-example": "Drag and Drop List Example"
 }

@@ -6,6 +6,7 @@ import FormExample from './components/sections/FormExample';
 import Error from './components/Error';
 import Home from './components/sections/Home';
 import AccordionExample from './components/sections/AccordionExample';
+import DraggableListExample from './components/sections/DndExample';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Route path="/usedTechnologies" element={<UsedTechnologies />} />
           <Route path="/form" element={<FormExample />} />
           <Route path="/accordion" element={<AccordionExample />} />
+          <Route path="/dndList" element={<DraggableListExample />} />
           <Route path="/*" element={<Error />} />
         </Routes>
       </Layout>
