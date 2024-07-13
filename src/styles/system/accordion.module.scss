@@ -1,0 +1,27 @@
+.accordion-container {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  transition: 0.3sec;
+
+  .accordion-item-container {
+    border-bottom: 1px solid gray;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+}

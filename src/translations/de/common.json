@@ -1,4 +1,6 @@
 {
+  "accordion-example": "Akkordeonbeispiel",
+  "back-home": "Zurück zur Startseite",
   "changeLanguage": "Sprache ändern",
   "checkbox": "Checkbox",
   "clickMe": "Klick mich",
@@ -11,6 +13,9 @@
     "data-saved-success": "Daten erfolgreich gespeichert",
     "language-changed": "Sprache geändert"
   },
+  "formExample": "Formularbeispiel",
+  "git-repo": "Git-Repo",
+  "home": "Startseite",
   "input": "Eingabe",
   "label": "Label",
   "login": "Anmelden",
@@ -19,9 +24,5 @@
   "register": "Registrieren",
   "register-description": "Registrieren Sie sich, um alle Funktionen zu nutzen",
   "slider": "Schieberegler",
-  "used": "Das Repo Nutzt:",
-  "back-home": "Zurück zur Startseite",
-    "home": "Startseite",
-  "formExample": "Formularbeispiel",
-  "git-repo": "Git-Repo"
+  "used": "Das Repo Nutzt:"
 }

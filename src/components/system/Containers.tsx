@@ -21,6 +21,7 @@ interface IContainerSectionProps extends IContainerProps {
   noBackground?: boolean;
   radius?: boolean;
   marginTop?: boolean;
+  noGap?: boolean;
 }
 
 export const ContainerSection: React.FC<IContainerSectionProps> = ({
@@ -28,8 +29,9 @@ export const ContainerSection: React.FC<IContainerSectionProps> = ({
   centred = false,
   width = 'small',
   noBackground = false,
-  radius= true,
+  radius = true,
   marginTop = true,
+  noGap = false,
 }) => {
   return (
     <div
@@ -39,6 +41,7 @@ export const ContainerSection: React.FC<IContainerSectionProps> = ({
       data-centred={centred}
       data-radius={radius}
       data-margin-top={marginTop}
+      data-gap={!noGap}
       children={children}
     />
   );

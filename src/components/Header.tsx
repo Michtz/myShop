@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import style from '../styles/header.module.scss';
 import Icon from './system/Icon';
@@ -10,12 +9,10 @@ import { ContainerSection } from './system/Containers';
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { showFeedback } = useFeedback();
-  const location = useLocation();
 
   const switchLanguage = async (): Promise<void> => {
-    const currentLang = i18n.language;
-    const newLang = currentLang === 'en' ? 'de' : 'en';
-
+    const currentLang: string = i18n.language;
+    const newLang: string = currentLang === 'en' ? 'de' : 'en';
     await i18n.changeLanguage(newLang);
     showFeedback(t('feedback.language-changed'), 'success');
   };
@@ -40,9 +37,16 @@ const Header: React.FC = () => {
     </ButtonContainer>
   );
 
+  const Accordion: JSX.Element = (
+    <ButtonContainer>
+      <Button href={'/accordion'} children={t('accordion-example')} />
+    </ButtonContainer>
+  );
+
   navOptions.push(FormExample);
   navOptions.push(UsedTechnologies);
   navOptions.push(Home);
+  navOptions.push(Accordion);
 
   return (
     <ContainerSection noBackground marginTop={false} radius={false} width={'full'}>
@@ -58,7 +62,7 @@ const Header: React.FC = () => {
           </ul>
         </nav>
         <ButtonContainer>
-          <Button onClick={switchLanguage}>{t('changeLanguage')}</Button>
+          <Button onClick={switchLanguage} children={t('changeLanguage')} />
         </ButtonContainer>
       </header>
     </ContainerSection>

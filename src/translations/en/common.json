@@ -1,4 +1,6 @@
 {
+  "accordion-example": "Accordion example",
+  "back-home": "Back to home",
   "changeLanguage": "Change language",
   "checkbox": "Checkbox",
   "clickMe": "Click me",
@@ -11,6 +13,9 @@
     "user-back": "Nice to see you again",
     "user-new": "Welcome"
   },
+  "formExample": "Form example",
+  "git-repo": "Git Repo",
+  "home": "Home",
   "input": "Input",
   "label": "Label",
   "login": "Login",
@@ -19,9 +24,5 @@
   "register": "Register",
   "register-description": "Register to use all features",
   "slider": "Slider",
-  "used": "This Repo used:",
-  "back-home": "Back to home",
-    "home": "Home",
-    "formExample": "Form example",
-    "git-repo": "Git Repo"
+  "used": "This Repo used:"
 }

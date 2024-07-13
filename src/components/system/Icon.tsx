@@ -5,11 +5,13 @@ import FlareOutlinedIcon from '@mui/icons-material/FlareOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import BookmarkAddedOutlinedIcon from '@mui/icons-material/BookmarkAddedOutlined';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import style from '../../styles/system/Icon.module.scss';
 
 type IconProps = {
@@ -22,10 +24,12 @@ type IconProps = {
     | 'delete'
     | 'arrowBack'
     | 'arrowForward'
+    | 'arrowUp'
+    | 'arrowDown'
     | 'check'
     | 'checkCircle'
     | 'bookmarkAdded';
-  color?: 'green' |'white' |'red'|'yellow';
+  color?: 'green' | 'white' | 'red' | 'yellow' | 'blue';
   size?: 'small' | 'normal' | 'big' | 'huge';
   animate?: boolean;
   centred?: boolean;
@@ -38,8 +42,10 @@ const iconComponents = {
   add: AddOutlinedIcon,
   edit: EditOutlinedIcon,
   delete: DeleteOutlineOutlinedIcon,
-  arrowBack: ArrowBackIosNewOutlinedIcon,
-  arrowForward: ArrowForwardIosOutlinedIcon,
+  arrowBack: KeyboardArrowLeftIcon,
+  arrowForward: KeyboardArrowRightIcon,
+  arrowDown: KeyboardArrowDownIcon,
+  arrowUp: KeyboardArrowUpIcon,
   check: CheckOutlinedIcon,
   checkCircle: CheckCircleOutlineOutlinedIcon,
   bookmarkAdded: BookmarkAddedOutlinedIcon,

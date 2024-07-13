@@ -121,7 +121,7 @@ const FormExample: React.FC = () => {
           <Button type={'submit'} color={'secondary'}>
             {t('login')}
           </Button>
-          <Button type={'submit'}>{t('register')}</Button>
+          <Button type={'submit'} children={t('register')}/>
         </ButtonContainer>
       </ContainerSectionForm>
     </>

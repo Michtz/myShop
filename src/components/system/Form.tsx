@@ -1,5 +1,4 @@
 import React, { MutableRefObject, PropsWithChildren, useRef } from 'react';
-import style from '../../styles/system/form.module.scss';
 import { IContainerProps, ContainerWidth } from '../../types/common';
 
 interface FormProps
@@ -59,9 +58,9 @@ interface FormTitleProps extends PropsWithChildren {
 
 export const FormTitle: React.FC<FormTitleProps> = ({ title, description }): JSX.Element => {
   return (
-    <div className={style['form-title']}>
+    <div>
       <h2>{title}</h2>
-      {description && <p className={style['form-description']}>{description}</p>}
+      {description && <p>{description}</p>}
     </div>
   );
 };
@@ -79,11 +78,7 @@ export const ContainerSectionForm: React.FC<ContainerSectionProps> = ({
   ...rest
 }): JSX.Element => {
   return (
-    <Form
-      data-width={width}
-      className={`${style['container-section-form']} ${width ? style[`width-${width}`] : ''}`}
-      {...rest}
-    >
+    <Form data-width={width} {...rest}>
       {children}
     </Form>
   );
