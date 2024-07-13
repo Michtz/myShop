@@ -7,6 +7,7 @@ import Error from './components/Error';
 import Home from './components/sections/Home';
 import AccordionExample from './components/sections/AccordionExample';
 import DraggableListExample from './components/sections/DndExample';
+import ProductCardExample from './components/sections/ProductCardExample';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <Route path="/form" element={<FormExample />} />
           <Route path="/accordion" element={<AccordionExample />} />
           <Route path="/dndList" element={<DraggableListExample />} />
+          <Route path="/card" element={<ProductCardExample />} />
           <Route path="/*" element={<Error />} />
         </Routes>
       </Layout>

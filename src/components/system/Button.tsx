@@ -21,18 +21,26 @@ export const ButtonContainer: React.FC<ButtonContainerProps> = ({
 interface ButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
+  className?: string;
   type?: 'button' | 'submit' | 'reset';
   color?: 'primary' | 'secondary';
   href?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, type, color = 'primary', href }) => {
+const Button: React.FC<ButtonProps> = ({
+  onClick,
+  children,
+  type,
+  color = 'primary',
+  href,
+  className,
+}) => {
   if (href) {
     return <Link href={href} children={children} />;
   }
 
   return (
-    <button onClick={onClick} className={style['button']} data-color={color} type={type}>
+    <button onClick={onClick} className={className} data-color={color} type={type}>
       {children}
     </button>
   );

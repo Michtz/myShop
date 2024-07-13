@@ -49,11 +49,18 @@ const Header: React.FC = () => {
     </ButtonContainer>
   );
 
+  const ProductCardExample: JSX.Element = (
+    <ButtonContainer>
+      <Button href={'/card'} children={t('card-example')} />
+    </ButtonContainer>
+  );
+
   navOptions.push(Home);
   navOptions.push(UsedTechnologies);
   navOptions.push(FormExample);
   navOptions.push(Accordion);
   navOptions.push(DndExample);
+  navOptions.push(ProductCardExample);
 
   return (
     <ContainerSection noBackground marginTop={false} radius={false} width={'full'}>

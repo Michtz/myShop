@@ -31,7 +31,7 @@ type IconProps = {
     | 'checkCircle'
     | 'dragIndicator'
     | 'bookmarkAdded';
-  color?: 'green' | 'white' | 'red' | 'yellow' | 'blue';
+  color?: 'green' | 'white' | 'red' | 'yellow' | 'blue' | 'black';
   size?: 'small' | 'normal' | 'big' | 'huge';
   animate?: boolean;
   centred?: boolean;

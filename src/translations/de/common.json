@@ -25,5 +25,7 @@
   "register-description": "Registrieren Sie sich, um alle Funktionen zu nutzen",
   "slider": "Schieberegler",
   "used": "Das Repo Nutzt:",
-  "dnd-example": "Drag and Drop List Beispiel"
+  "dnd-example": "Drag and Drop List Beispiel",
+  "card-example": "Kartenbeispiel",
+  "add-to-chart": "Zum Warenkorb hinzufügen"
 }

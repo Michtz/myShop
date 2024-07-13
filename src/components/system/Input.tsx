@@ -6,7 +6,7 @@ type inputType = 'text' | 'password' | 'email' | 'number' | 'radio' | 'range' | 
 interface InputProps {
   label: string;
   fullWidth?: boolean;
-  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   error?: string;
   disabled?: boolean;
   required?: boolean;

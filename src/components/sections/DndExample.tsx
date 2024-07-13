@@ -18,11 +18,6 @@ const DraggableListExample: React.FC = () => {
     { uuid: '15e5c24e-857c-4be6-8ea1-fd1d676e7bab', name: 'Item_3' },
     { uuid: '64693107-89f6-456f-9f6c-c91c2f572c7c', name: 'Item_4' },
     { uuid: '32e4d2bf-625a-4575-8489-894d2d1f7741', name: 'Item_5' },
-    { uuid: '04cff589-9248-4771-9ad4-310062595803', name: 'Item_6' },
-    { uuid: 'd186b98f-0ba5-4242-83a6-870b7c701ed6', name: 'Item_7' },
-    { uuid: '178e602e-cd9c-4d10-a235-10441c414d86', name: 'Item_8' },
-    { uuid: 'c8ebdfea-e113-4a4b-a6e4-7ffe527a1c56', name: 'Item_9' },
-    { uuid: '1145bab3-13ce-4255-9505-1bf1d0451b67', name: 'Item_10' },
   ]);
 
   const handleReorder = (newOrder: DraggableItem[]) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
-import { useTranslation } from 'react-i18next';
+import style from '../../styles/system/dndList.module.scss';
+import Icon from './Icon';
 
 interface DraggableItem {
   uuid: string;
@@ -25,11 +26,15 @@ const DraggableList: React.FC<DraggableListProps> = ({ items, onReorder }) => {
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="list">
         {(provided) => (
-          <ul {...provided.droppableProps} ref={provided.innerRef}>
+          <ul
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            className={style['dndList-container']}
+          >
             {items.map((item, index) => (
               <Draggable key={item.uuid} draggableId={item.uuid} index={index}>
                 {(provided, snapshot) => (
-                  <li
+                  <div
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
@@ -43,8 +48,9 @@ const DraggableList: React.FC<DraggableListProps> = ({ items, onReorder }) => {
                       cursor: 'pointer',
                     }}
                   >
+                    <Icon name={'dragIndicator'} color={'black'} size={'small'} />
                     {item.name}
-                  </li>
+                  </div>
                 )}
               </Draggable>
             ))}
