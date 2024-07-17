@@ -10,7 +10,7 @@ interface ProductCardProps {
   description: string;
   price: number;
   fullDescription: string;
-  options?: string[];
+  options?: Array<string>;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({

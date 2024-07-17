@@ -1,37 +1,27 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ContainerSection, ContainerSectionForm } from '../system/Containers';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormRow, FormTitle } from '../system/Form';
 import Input from '../system/Input';
-import { ExampleData } from '../../types/common';
+import { ExampleData, FormFields } from '../../types/common';
 import Button, { ButtonContainer } from '../system/Button';
 import { useExampleData } from '../../hook/ExampleDataHook';
 import { useFeedback } from '../../hook/FeedbackHook';
 import Icon from '../system/Icon';
 
-interface FormFields {
-  name: string;
-  email: string;
-  password: string;
-}
-
 const getDefaultValues = (exampleData: ExampleData = {} as any): FormFields => {
-  const storageData: string | null = localStorage.getItem('userData');
+  const storageData = localStorage.getItem('userData');
   if (storageData) {
-    const userData = JSON.parse(storageData);
-    return {
-      name: userData.name || '',
-      email: userData.email || '',
-      password: userData.password || '',
-    };
-  } else {
-    return {
-      name: exampleData.formExample?.name || '',
-      email: exampleData.formExample?.email || '',
-      password: exampleData.formExample?.password || '',
-    };
+    return JSON.parse(storageData);
   }
+  return {
+    name: exampleData.formExample?.name || '',
+    email: exampleData.formExample?.email || '',
+    password: exampleData.formExample?.password || '',
+    slider: '50',
+    checkbox: false,
+  };
 };
 
 const FormExample: React.FC = () => {
@@ -44,19 +34,13 @@ const FormExample: React.FC = () => {
     defaultValues: getDefaultValues(exampleData),
   });
 
-  const onSubmit = async (data: FormFields) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      const dataAsString: string = JSON.stringify(data);
-      sessionStorage.setItem('userData', dataAsString);
+      localStorage.setItem('userData', JSON.stringify(data));
       showFeedback(t('feedback.data-saved-success'), 'success');
     } catch (e) {
       showFeedback(t('feedback.data-saved-error'), 'error');
     }
-  };
-
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    handleSubmit(onSubmit)();
   };
 
   return (
@@ -65,7 +49,7 @@ const FormExample: React.FC = () => {
         <h1>{t('formExample')}</h1>
         <Icon name="lightMode" centred color="green" size="huge" animate />
       </ContainerSection>
-      <ContainerSectionForm width={'small'} onSubmit={handleFormSubmit}>
+      <ContainerSectionForm width={'small'} onSubmit={handleSubmit(onSubmit)}>
         <FormTitle title={t('register')} description={t('register-description')} />
         <FormRow>
           <Input
@@ -73,7 +57,6 @@ const FormExample: React.FC = () => {
             fullWidth
             placeholder={t('name')}
             inputProps={register('name', { required: true })}
-            disabled={false}
           />
         </FormRow>
         <FormRow>
@@ -81,8 +64,7 @@ const FormExample: React.FC = () => {
             required
             label={t('email')}
             fullWidth
-            inputProps={register('email', { required: false })}
-            disabled={false}
+            inputProps={register('email', { required: true })}
           />
         </FormRow>
         <FormRow>
@@ -92,8 +74,7 @@ const FormExample: React.FC = () => {
             label={t('password')}
             fullWidth
             placeholder={'********'}
-            inputProps={register('password', { required: false })}
-            disabled={false}
+            inputProps={register('password', { required: true })}
           />
         </FormRow>
         <FormRow>
@@ -102,9 +83,7 @@ const FormExample: React.FC = () => {
             required
             label={t('slider')}
             fullWidth
-            placeholder={'********'}
-            inputProps={register('name', { required: false })}
-            disabled={false}
+            inputProps={register('slider', { required: true })}
           />
         </FormRow>
         <FormRow>
@@ -113,15 +92,14 @@ const FormExample: React.FC = () => {
             label={t('checkbox')}
             alignContent={'start'}
             required
-            inputProps={register('name', { required: false })}
-            disabled={false}
+            inputProps={register('checkbox', { required: true })}
           />
         </FormRow>
         <ButtonContainer position={'center'}>
           <Button type={'submit'} color={'secondary'}>
             {t('login')}
           </Button>
-          <Button type={'submit'} children={t('register')} />
+          <Button type={'submit'}>{t('register')}</Button>
         </ButtonContainer>
       </ContainerSectionForm>
     </>

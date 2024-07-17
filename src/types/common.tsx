@@ -58,3 +58,50 @@ export type ContainerWidth = 'small' | 'medium' | 'large' | 'full';
  * Defines possible variants for feedback messages
  */
 export type FeedbackVariant = 'error' | 'info' | 'success';
+
+
+
+/**
+ * Represents a navigation option with a path and label.
+ */
+export interface NavOption {
+  /**
+   * The path for the navigation option.
+   */
+  path: string;
+
+  /**
+   * The label for the navigation option.
+   */
+  label: string;
+}
+
+/**
+ * Represents the fields of a form.
+ */
+export interface FormFields {
+  /**
+   * The name field of the form.
+   */
+  name?: string;
+
+  /**
+   * The email field of the form.
+   */
+  email?: string;
+
+  /**
+   * The password field of the form.
+   */
+  password?: string;
+
+  /**
+   * The slider field of the form.
+   */
+  slider?: string;
+
+  /**
+   * The checkbox field of the form.
+   */
+  checkbox?: boolean;
+}

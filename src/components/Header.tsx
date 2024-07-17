@@ -5,6 +5,8 @@ import Icon from './system/Icon';
 import Button, { ButtonContainer } from './system/Button';
 import { useFeedback } from '../hook/FeedbackHook';
 import { ContainerSection } from './system/Containers';
+import LoginRegister from './system/LoginRegister';
+import { NavOption } from '../types/common';
 
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -17,69 +19,49 @@ const Header: React.FC = () => {
     showFeedback(t('feedback.language-changed'), 'success');
   };
 
-  const navOptions: Array<JSX.Element> = [];
-
-  const Home: JSX.Element = (
+  const createNavOption = (path: string, labelKey: string): JSX.Element => (
     <ButtonContainer>
-      <Button href={'/'} children={t('home')} />
+      <Button href={path} children={t(labelKey)} />
     </ButtonContainer>
   );
 
-  const UsedTechnologies: JSX.Element = (
-    <ButtonContainer>
-      <Button href={'/usedTechnologies'} children={t('usedTechnologies')} />
-    </ButtonContainer>
+  const navOptionsData: NavOption[] = [
+    { path: '/', label: 'home' },
+    { path: '/usedTechnologies', label: 'usedTechnologies' },
+    { path: '/form', label: 'formExample' },
+    { path: '/accordion', label: 'accordion-example' },
+    { path: '/dndList', label: 'dnd-example' },
+    { path: '/card', label: 'card-example' },
+    { path: '/login', label: 'login' },
+  ];
+
+  const navOptions: JSX.Element[] = navOptionsData.map((option) =>
+    createNavOption(option.path, option.label),
   );
-
-  const FormExample: JSX.Element = (
-    <ButtonContainer>
-      <Button href={'/form'} children={t('formExample')} />
-    </ButtonContainer>
-  );
-
-  const Accordion: JSX.Element = (
-    <ButtonContainer>
-      <Button href={'/accordion'} children={t('accordion-example')} />
-    </ButtonContainer>
-  );
-
-  const DndExample: JSX.Element = (
-    <ButtonContainer>
-      <Button href={'/dndList'} children={t('dnd-example')} />
-    </ButtonContainer>
-  );
-
-  const ProductCardExample: JSX.Element = (
-    <ButtonContainer>
-      <Button href={'/card'} children={t('card-example')} />
-    </ButtonContainer>
-  );
-
-  navOptions.push(Home);
-  navOptions.push(UsedTechnologies);
-  navOptions.push(FormExample);
-  navOptions.push(Accordion);
-  navOptions.push(DndExample);
-  navOptions.push(ProductCardExample);
-
   return (
-    <ContainerSection noBackground marginTop={false} radius={false} width={'full'}>
-      <header className={style['header-container']}>
-        <nav>
-          <section className={style['logo-container']}>
-            <Icon name={'flare'} color={'green'} size={'normal'} />
-          </section>
-          <ul className={style['nav-container']}>
-            {navOptions.map((option: JSX.Element, index: number) => (
-              <li key={index}>{option}</li>
-            ))}
-          </ul>
-        </nav>
-        <ButtonContainer>
-          <Button onClick={switchLanguage} children={t('changeLanguage')} />
-        </ButtonContainer>
-      </header>
-    </ContainerSection>
+    <>
+      <ContainerSection noBackground marginTop={false} radius={false} width={'full'}>
+        <header className={style['header-container']}>
+          <nav>
+            <section className={style['logo-container']}>
+              <Icon name={'flare'} color={'green'} size={'normal'} />
+            </section>
+            <ul className={style['nav-container']}>
+              {navOptions.map((option: JSX.Element, index: number) => (
+                <li key={index}>{option}</li>
+              ))}
+            </ul>
+          </nav>
+          <ButtonContainer>
+            <Button onClick={switchLanguage} children={t('changeLanguage')} />
+          </ButtonContainer>
+        </header>
+      </ContainerSection>
+      {/*ToDo: Something is wrong here with the modal*/}
+      <ContainerSection noBackground marginTop={false} radius={false} width={'full'}>
+        <LoginRegister />
+      </ContainerSection>
+    </>
   );
 };
 

@@ -13,6 +13,7 @@ import BookmarkAddedOutlinedIcon from '@mui/icons-material/BookmarkAddedOutlined
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import CloseIcon from '@mui/icons-material/Close';
 import style from '../../styles/system/Icon.module.scss';
 
 type IconProps = {
@@ -30,6 +31,7 @@ type IconProps = {
     | 'check'
     | 'checkCircle'
     | 'dragIndicator'
+    | 'close'
     | 'bookmarkAdded';
   color?: 'green' | 'white' | 'red' | 'yellow' | 'blue' | 'black';
   size?: 'small' | 'normal' | 'big' | 'huge';
@@ -52,6 +54,7 @@ const iconComponents = {
   checkCircle: CheckCircleOutlineOutlinedIcon,
   bookmarkAdded: BookmarkAddedOutlinedIcon,
   dragIndicator: DragIndicatorIcon,
+  close: CloseIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ name, color, size = 'normal', animate = false, centred }) => {

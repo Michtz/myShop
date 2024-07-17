@@ -65,23 +65,6 @@ export const FormTitle: React.FC<FormTitleProps> = ({ title, description }): JSX
   );
 };
 
-/**
- * ContainerSectionForm system component can be used as a wrapper for a form in a container section
- */
-interface ContainerSectionProps extends IContainerProps {
-  width?: ContainerWidth;
-}
 
-export const ContainerSectionForm: React.FC<ContainerSectionProps> = ({
-  width,
-  children,
-  ...rest
-}): JSX.Element => {
-  return (
-    <Form data-width={width} {...rest}>
-      {children}
-    </Form>
-  );
-};
 
 export default Form;

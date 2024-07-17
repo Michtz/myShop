@@ -8,6 +8,15 @@ import Home from './components/sections/Home';
 import AccordionExample from './components/sections/AccordionExample';
 import DraggableListExample from './components/sections/DndExample';
 import ProductCardExample from './components/sections/ProductCardExample';
+import LoginExample from './components/sections/LoginExample';
+
+{
+  /*
+  Todo:Ideas
+    ToDo: add a api for the quoute of the day
+    ToDo: add qr code generator 
+    */
+}
 
 const App: React.FC = () => {
   return (
@@ -20,6 +29,7 @@ const App: React.FC = () => {
           <Route path="/accordion" element={<AccordionExample />} />
           <Route path="/dndList" element={<DraggableListExample />} />
           <Route path="/card" element={<ProductCardExample />} />
+          <Route path="/login" element={<LoginExample />} />
           <Route path="/*" element={<Error />} />
         </Routes>
       </Layout>
