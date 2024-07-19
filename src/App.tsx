@@ -13,6 +13,7 @@ import LoginExample from './components/sections/LoginExample';
 {
   /*
   Todo:Ideas
+  todo: add hash generator for the password https://www.youtube.com/watch?v=NuyzuNBFWxQ
     ToDo: add a api for the quoute of the day
     ToDo: add qr code generator 
     */

@@ -6,6 +6,7 @@ import { ContainerSectionForm, ModalContainer } from '../components/system/Conta
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormFields } from '../types/common';
 import { useFeedback } from '../hook/FeedbackHook';
+import { useError } from '../hook/ErrorHook';
 
 interface LoginRegisterModalProps {
   onClose: () => void;
@@ -14,7 +15,12 @@ interface LoginRegisterModalProps {
 const LoginRegisterModal: React.FC<LoginRegisterModalProps> = ({ onClose }) => {
   const { t } = useTranslation();
   const { showFeedback } = useFeedback();
-  const { register, handleSubmit } = useForm<FormFields>({});
+  const { transformFieldError } = useError();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>();
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
@@ -26,25 +32,34 @@ const LoginRegisterModal: React.FC<LoginRegisterModalProps> = ({ onClose }) => {
     }
   };
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateFieldName = (value: string | undefined): true | string => {
+    if (!value) return 'required';
+    if (!emailRegex.test(value)) return 'notAEmail';
+    return true;
+  };
+
   return (
     <ModalContainer onClose={onClose}>
       <ContainerSectionForm width={'large'} onSubmit={handleSubmit(onSubmit)}>
         <h1>{t('register')}</h1>
         <Input
-          required
-          inputProps={register('email', { required: true })}
-          fullWidth
           label={t('email')}
+          required
+          inputProps={register('email', { required: 'required', validate: validateFieldName })}
           type="email"
+          {...transformFieldError(errors.email?.message ? { type: errors.email.message } : errors.email)}
         />
         <Input
-          required
-          inputProps={register('password', { required: true })}
           label={t('password')}
+          required
+          inputProps={register('password', { required: 'required' })}
           type="password"
+          {...transformFieldError(errors.password)}
         />
         <ButtonContainer>
-          <Button children={t('login')} />
+          <Button children={t('register')}/>
         </ButtonContainer>
       </ContainerSectionForm>
     </ModalContainer>

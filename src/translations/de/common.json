@@ -27,5 +27,11 @@
   "used": "Das Repo Nutzt:",
   "dnd-example": "Drag and Drop List Beispiel",
   "card-example": "Kartenbeispiel",
-  "add-to-chart": "Zum Warenkorb hinzufügen"
+  "add-to-chart": "Zum Warenkorb hinzufügen",
+  "error": {
+    "required": "Pflicht Feld",
+    "not-a-email": "Keine gültige E-Mail",
+    "password-length": "Passwort muss mindestens 6 Zeichen lang sein",
+    "error": "error"
+  }
 }

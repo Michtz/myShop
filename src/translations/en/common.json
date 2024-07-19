@@ -27,5 +27,10 @@
   "used": "This Repo used:",
   "dnd-example": "Drag and Drop List Example",
   "card-example": "Card Example",
-  "add-to-chart": "Add to chart"
+  "add-to-chart": "Add to chart",
+    "error": {
+        "required": "Required field",
+      "not-a-email": "Not a valid email",
+      "error": "error"
+    }
 }
