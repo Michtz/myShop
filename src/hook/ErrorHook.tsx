@@ -12,10 +12,8 @@ interface ErrorHook {
 }
 
 const errorMessageKeys: { [key: string]: string } = {
-
   notAEmail: 'error.not-a-email',
   required: 'error.required',
-  // Add more error types here as needed
 };
 
 const ErrorContext = createContext<ErrorHook | undefined>(undefined);
@@ -25,32 +23,24 @@ export const ErrorProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const transformFieldError = (error?: FieldError): TransformedFieldError => {
     if (!error) return { error: false };
-
-    console.log(error);
-    const errorKey = error.type || error.message;
-    if (errorKey && errorKey in errorMessageKeys) {
+    const errorKey: string | undefined = error.type || error.message;
+    if (errorKey && errorKey in errorMessageKeys)
       return {
         error: true,
         helperText: t(errorMessageKeys[errorKey]),
       };
-    }
 
-    // Default error message
     return {
       error: true,
       helperText: t('error.error'),
     };
   };
 
-  return (
-    <ErrorContext.Provider value={{ transformFieldError }}>
-      {children}
-    </ErrorContext.Provider>
-  );
+  return <ErrorContext.Provider value={{ transformFieldError }}>{children}</ErrorContext.Provider>;
 };
 
 export const useError = (): ErrorHook => {
-  const context = useContext(ErrorContext);
+  const context: ErrorHook | undefined = useContext(ErrorContext);
   if (!context) {
     throw new Error('useError must be used within an ErrorProvider');
   }

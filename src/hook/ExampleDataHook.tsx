@@ -1,8 +1,15 @@
 import React, { createContext, useContext, Context, PropsWithChildren } from 'react';
 import { ExampleData } from '../types/common';
-import exampleDataJson from '../data/exampleData.json';
 
-const defaultValue: ExampleData = exampleDataJson;
+//  This is a hook example to import JSON from an api endpoint
+
+const defaultValue: ExampleData = {
+  formExample: {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    password: '',
+  },
+};
 
 const ExampleDataContext: Context<ExampleData> = createContext<ExampleData>(defaultValue);
 

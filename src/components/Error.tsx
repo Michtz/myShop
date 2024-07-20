@@ -3,15 +3,18 @@ import { useTranslation } from 'react-i18next';
 import Button, { ButtonContainer } from './system/Button';
 import { ContainerSection } from './system/Containers';
 
-const Header: React.FC = () => {
+/*Todo: style a bit more*/
+
+const Error: React.FC = () => {
   const { t } = useTranslation();
   return (
     <ContainerSection>
+      <h1>{t('error-text')}</h1>
       <ButtonContainer>
-        <Button href={"/"} children={t('back-home')}/>
+        <Button href={'/'} children={t('back-home')} />
       </ButtonContainer>
     </ContainerSection>
   );
 };
 
-export default Header;
+export default Error;

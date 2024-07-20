@@ -27,14 +27,11 @@ const ProductModal: React.FC<ProductModalProps> = ({
   const { t } = useTranslation();
   const [showFullDescription, setShowFullDescription] = useState(false);
 
-
-  const toggleDescription = () => setShowFullDescription(!showFullDescription);
-
   const renderDescription: JSX.Element = (
     <>
-      <p>{showFullDescription ? description : `${description.slice(0, 100)}...`}</p>
+      <p>{showFullDescription ? description : `${description.slice(0, 30)}...`}</p>
       <ButtonContainer>
-        <Button onClick={toggleDescription}>
+        <Button onClick={() => setShowFullDescription(!showFullDescription)}>
           {showFullDescription ? t('show-less') : t('read-more')}
         </Button>
       </ButtonContainer>
@@ -44,8 +41,8 @@ const ProductModal: React.FC<ProductModalProps> = ({
   const renderOptions: JSX.Element = options ? (
     <ContainerSectionForm noMargin noPadding>
       <h4>{t('options')}</h4>
-      {options?.map((option, index) => (
-        <Input key={index} alignContent="start" label={option} type="radio" />
+      {options?.map((option:string) => (
+        <Input key={option} alignContent="start" label={option} type="radio" />
       ))}
     </ContainerSectionForm>
   ) : (

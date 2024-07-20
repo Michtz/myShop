@@ -6,6 +6,8 @@ import { ContainerSection } from '../system/Containers';
 import Icon from '../system/Icon';
 import { useTranslation } from 'react-i18next';
 
+/* ToDo: Redo this with import of data and .map functions and translations */
+
 const ProductCardExample: React.FC = () => {
   const { t } = useTranslation();
   return (
@@ -33,7 +35,6 @@ const ProductCardExample: React.FC = () => {
           price={29.99}
           options={['Option A', 'Option B', 'Option C']}
         />
-        {/* Add more ProductCards as needed */}
       </ContainerSection>
     </>
   );

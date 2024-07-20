@@ -1,17 +1,27 @@
 {
   "accordion-example": "Accordion example",
+  "add-to-cart": "Add to chart",
   "back-home": "Back to home",
+  "card-example": "Card Example",
   "changeLanguage": "Change language",
   "checkbox": "Checkbox",
   "clickMe": "Click me",
+  "dnd-example": "Drag and Drop List Example",
   "email": "Email",
   "emptyRepo": "Empty Repository",
+  "error": {
+    "required": "Required field",
+    "not-a-email": "Not a valid email",
+    "error": "error"
+  },
+  "error-text": "Something went wrong. Please check the URL or go back to the home page.",
   "feedback": {
     "data-saved-error": "Error saving data",
     "data-saved-success": "Data saved successfully",
     "language-changed": "Language changed",
     "user-back": "Nice to see you again",
-    "user-new": "Welcome"
+    "user-new": "Welcome",
+    "language-change-error": "Error changing language"
   },
   "formExample": "Form example",
   "git-repo": "Git Repo",
@@ -20,17 +30,12 @@
   "label": "Label",
   "login": "Login",
   "name": "Name",
+  "options": "Options",
   "password": "Password",
+  "read-less": "Read less",
+  "read-more": "Read more",
   "register": "Register",
   "register-description": "Register to use all features",
   "slider": "Slider",
-  "used": "This Repo used:",
-  "dnd-example": "Drag and Drop List Example",
-  "card-example": "Card Example",
-  "add-to-chart": "Add to chart",
-    "error": {
-        "required": "Required field",
-      "not-a-email": "Not a valid email",
-      "error": "error"
-    }
+  "used": "This Repo used:"
 }

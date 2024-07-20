@@ -10,16 +10,19 @@ import { useExampleData } from '../../hook/ExampleDataHook';
 import { useFeedback } from '../../hook/FeedbackHook';
 import Icon from '../system/Icon';
 
-const getDefaultValues = (exampleData: ExampleData = {} as any): FormFields => {
-  const storageData = localStorage.getItem('userData');
-  if (storageData) {
-    return JSON.parse(storageData);
-  }
+
+/*ToDo: Redo this old example with the error management */
+
+// Example for a import via api
+const getDefaultValues = (exampleData: ExampleData): FormFields => {
+  const storageData: string | null = localStorage.getItem('userData');
+  if (storageData) return JSON.parse(storageData);
+
   return {
     name: exampleData.formExample?.name || '',
     email: exampleData.formExample?.email || '',
     password: exampleData.formExample?.password || '',
-    slider: '50',
+    slider: '60',
     checkbox: false,
   };
 };
@@ -34,7 +37,7 @@ const FormExample: React.FC = () => {
     defaultValues: getDefaultValues(exampleData),
   });
 
-  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data:FormFields):Promise<void> => {
     try {
       localStorage.setItem('userData', JSON.stringify(data));
       showFeedback(t('feedback.data-saved-success'), 'success');
@@ -80,7 +83,6 @@ const FormExample: React.FC = () => {
         <FormRow>
           <Input
             type={'range'}
-            required
             label={t('slider')}
             fullWidth
             inputProps={register('slider', { required: true })}
@@ -91,7 +93,6 @@ const FormExample: React.FC = () => {
             type={'radio'}
             label={t('checkbox')}
             alignContent={'start'}
-            required
             inputProps={register('checkbox', { required: true })}
           />
         </FormRow>

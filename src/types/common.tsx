@@ -59,8 +59,6 @@ export type ContainerWidth = 'small' | 'medium' | 'large' | 'full';
  */
 export type FeedbackVariant = 'error' | 'info' | 'success';
 
-
-
 /**
  * Represents a navigation option with a path and label.
  */

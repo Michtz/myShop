@@ -3,20 +3,20 @@ import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea
 import style from '../../styles/system/dndList.module.scss';
 import Icon from './Icon';
 
-interface DraggableItem {
-  uuid: string;
+export interface DraggableItem {
+  id: string;
   name: string;
 }
 
 interface DraggableListProps {
-  items: DraggableItem[];
-  onReorder: (newOrder: DraggableItem[]) => void;
+  items: Array<DraggableItem>;
+  onReorder: (newOrder: Array<DraggableItem>) => void;
 }
 
 const DraggableList: React.FC<DraggableListProps> = ({ items, onReorder }) => {
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
-    const newItems = Array.from(items);
+    const newItems:Array<DraggableItem> = Array.from(items);
     const [reorderedItem] = newItems.splice(result.source.index, 1);
     newItems.splice(result.destination.index, 0, reorderedItem);
     onReorder(newItems);
@@ -32,7 +32,7 @@ const DraggableList: React.FC<DraggableListProps> = ({ items, onReorder }) => {
             className={style['dndList-container']}
           >
             {items.map((item, index) => (
-              <Draggable key={item.uuid} draggableId={item.uuid} index={index}>
+              <Draggable key={item.id} draggableId={item.id} index={index}>
                 {(provided, snapshot) => (
                   <div
                     ref={provided.innerRef}

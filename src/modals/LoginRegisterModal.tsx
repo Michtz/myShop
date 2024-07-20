@@ -7,6 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormFields } from '../types/common';
 import { useFeedback } from '../hook/FeedbackHook';
 import { useError } from '../hook/ErrorHook';
+import { EMAIL_REGEX } from '../data/data';
 
 interface LoginRegisterModalProps {
   onClose: () => void;
@@ -22,7 +23,7 @@ const LoginRegisterModal: React.FC<LoginRegisterModalProps> = ({ onClose }) => {
     formState: { errors },
   } = useForm<FormFields>();
 
-  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data: FormFields): Promise<void> => {
     try {
       localStorage.setItem('login-example', JSON.stringify(data));
       onClose();
@@ -32,11 +33,9 @@ const LoginRegisterModal: React.FC<LoginRegisterModalProps> = ({ onClose }) => {
     }
   };
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   const validateFieldName = (value: string | undefined): true | string => {
     if (!value) return 'required';
-    if (!emailRegex.test(value)) return 'notAEmail';
+    if (!EMAIL_REGEX.test(value)) return 'notAEmail';
     return true;
   };
 
@@ -49,7 +48,9 @@ const LoginRegisterModal: React.FC<LoginRegisterModalProps> = ({ onClose }) => {
           required
           inputProps={register('email', { required: 'required', validate: validateFieldName })}
           type="email"
-          {...transformFieldError(errors.email?.message ? { type: errors.email.message } : errors.email)}
+          {...transformFieldError(
+            errors.email?.message ? { type: errors.email.message } : errors.email,
+          )}
         />
         <Input
           label={t('password')}
@@ -59,7 +60,7 @@ const LoginRegisterModal: React.FC<LoginRegisterModalProps> = ({ onClose }) => {
           {...transformFieldError(errors.password)}
         />
         <ButtonContainer>
-          <Button children={t('register')}/>
+          <Button children={t('register')} />
         </ButtonContainer>
       </ContainerSectionForm>
     </ModalContainer>
