@@ -7,6 +7,7 @@ import ProductCardExample from '../components/sections/ProductCardExample';
 import LoginExample from '../components/sections/LoginExample';
 import { ComponentType } from 'react';
 import { DraggableItem } from '../components/system/DraggableList';
+import Shop from '../components/sections/Shop';
 
 export interface SideDataProps {
   path: string;
@@ -17,6 +18,7 @@ export interface SideDataProps {
 // Data for the navigation
 export const sides: Array<SideDataProps> = [
   { path: '/', label: 'home', component: Home },
+  { path: '/shop', label: 'Shop', component: Shop },
   { path: '/usedTechnologies', label: 'usedTechnologies', component: UsedTechnologies },
   { path: '/form', label: 'formExample', component: FormExample },
   { path: '/accordion', label: 'accordion-example', component: AccordionExample },

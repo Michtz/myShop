@@ -14,6 +14,12 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
+import TranslateIcon from '@mui/icons-material/Translate';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import LogoDevOutlinedIcon from '@mui/icons-material/LogoDevOutlined';
+
 import style from '../../styles/system/Icon.module.scss';
 
 type IconProps = {
@@ -32,11 +38,18 @@ type IconProps = {
     | 'checkCircle'
     | 'dragIndicator'
     | 'close'
+    | 'translate'
+    | 'menu'
+    | 'profile'
+    | 'cart'
+    | 'logo'
     | 'bookmarkAdded';
   color?: 'green' | 'white' | 'red' | 'yellow' | 'blue' | 'black';
   size?: 'small' | 'normal' | 'big' | 'huge';
   animate?: boolean;
   centred?: boolean;
+  onClick?: () => void;
+  tooltip?: string;
 };
 
 const iconComponents = {
@@ -55,12 +68,26 @@ const iconComponents = {
   bookmarkAdded: BookmarkAddedOutlinedIcon,
   dragIndicator: DragIndicatorIcon,
   close: CloseIcon,
+  menu: MenuIcon,
+  translate: TranslateIcon,
+  profile: AccountCircleOutlinedIcon,
+  cart: ShoppingCartOutlinedIcon,
+  logo: LogoDevOutlinedIcon,
 };
 
-const Icon: React.FC<IconProps> = ({ name, color, size = 'normal', animate = false, centred }) => {
+const Icon: React.FC<IconProps> = ({
+  name,
+  color,
+  size = 'normal',
+  animate = false,
+  centred,
+  onClick,
+  tooltip,
+}) => {
   const IconComponent = iconComponents[name];
   return (
     <IconComponent
+      onClick={onClick}
       className={style['icon']}
       data-size={size}
       data-color={color}

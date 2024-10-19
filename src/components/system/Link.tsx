@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../../styles/system/link.module.scss';
 
 interface LinkProps {
   children: React.ReactNode;
@@ -9,7 +10,7 @@ interface LinkProps {
 
 const Link: React.FC<LinkProps> = ({ children, href, onClick, fullWidth = false }) => {
   return (
-    <a href={href} onClick={onClick} data-fullwidth={fullWidth}>
+    <a href={href} onClick={onClick} className={style['link']} data-fullwidth={fullWidth}>
       {children}
     </a>
   );
